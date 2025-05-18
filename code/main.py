@@ -92,6 +92,7 @@ class Main():
             if hasattr(self.current_state, 'reinitialize'):
                 self.current_state.reinitialize()
             self.all_sprites.player[0] = None
+            self.all_sprites.player_offset = vector()
             self.state[1] = False
     def run(self):
         while True:

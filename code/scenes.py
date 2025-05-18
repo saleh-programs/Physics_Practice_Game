@@ -1234,15 +1234,15 @@ class Level6(Level_General):
             self.saved_text.extend([
                 Text(self.groups, 30, self.willow.pos + vector(0,-100),200,color='blue',draw='camera').add_text("What is your OBSESSION with my calculator?!")
             ])
-        self.saved_text[0].pos = self.willow.pos + vector(0,-100)
+        self.saved_text[0].pos = self.willow.pos + vector(0,-100) + (self.willow.pos - self.willow.old_pos)
         self.manager.ready = True
     def sequence5(self):
         if not self.manager.called:
             self.saved_text.extend([
                 Text(self.groups, 30, self.robber.pos + vector(0,-100),200,color='maroon',draw='camera').add_text("TI-84 is expensive these days man!! BACK OFF!")
             ])
-        self.saved_text[0].pos = self.willow.pos + vector(0,-100)
-        self.saved_text[1].pos = self.robber.pos + vector(0,-100)
+        self.saved_text[0].pos = self.willow.pos + vector(0,-100) + (self.willow.pos - self.willow.old_pos)
+        self.saved_text[1].pos = self.robber.pos + vector(0,-100) + (self.willow.pos - self.willow.old_pos)
 
         self.manager.ready = True
     def sequence6(self):
@@ -1253,7 +1253,7 @@ class Level6(Level_General):
             self.saved_text.extend([
                 Text(self.groups, 30, self.robber.pos + vector(0,-100),100,color='blue',draw='camera').add_text("NO YOU CAN'T JUST TAKE MY THINGS")
             ])
-        self.saved_text[0].pos = self.willow.pos + vector(0,-100)
+        self.saved_text[0].pos = self.willow.pos + vector(0,-100) + (self.willow.pos - self.willow.old_pos)
         self.manager.ready = True
     def sequence7(self):
         if not self.manager.called:
@@ -1318,8 +1318,8 @@ class Level6(Level_General):
         direction = (self.robber.pos - self.willow.pos).normalize()
         self.willow.pos += direction * 400 * self.dt
 
-        self.saved_text[0].pos = self.willow.pos + vector(0,-100)
-        self.saved_text[1].pos = self.robber.pos + vector(0,-150)
+        self.saved_text[0].pos = self.willow.pos + vector(0,-100) + (self.willow.pos - self.willow.old_pos)
+        self.saved_text[1].pos = self.robber.pos + vector(0,-150) + (self.willow.pos - self.willow.old_pos)
         self.transition.center = self.willow.pos.copy() + self.all_sprites.store_offset
 
         if self.transition.dark:
